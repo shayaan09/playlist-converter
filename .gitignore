@@ -1,0 +1,22 @@
+# Secrets
+.env
+*.env
+*.json
+client_secret_*.json
+secrets/
+
+# Python junk
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment folders
+venv/
+env/
+
+# VS Code settings
+.vscode/
+
+# macOS hidden files
+.DS_Store
