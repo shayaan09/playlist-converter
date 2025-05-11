@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 
 ### TODO
 
+(X) = Activity Completed
+
+---
+
 ()Create frontend using Vite
 
 ()Change Spotify & Youtube Authorization Code Flows from local versions (only working for me) to unique for each user.
@@ -16,14 +20,23 @@ All notable changes to this project will be documented in this file.
 
 ()Refine search algorithm - Check for artist before adding. As of 23 APR 2025: Adds songs with the same names sometimes but different artist
 
-() Don't do fuzzy matching - Do lyrics-based searching
+()Don't do fuzzy matching - Do lyrics-based searching usinf FAISS
 
-(x)FastAPI for frontend connection with backend
+(X)FastAPI for frontend connection with backend
 
 ()Added support for multiple platforms [Spotify <--> YouTube <--> Apple Music]
 
 ()Currently, sp and ytCredentials in fast.py are GLOBAL and will break with multiple users. Modify it.
 
+(X)Create a database schema and start practicing postgreSQL
+
+---
+
+## [v1.1.3] - 2025-05-10
+
+### Added
+
+- Documents folder along with starting files. Learnt basic CRUD, initializations, among other things. Going to learn PostgreSQL for the database portion of this project
 
 ---
 
@@ -31,13 +44,13 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- `/convertPlaylists` route to support conversion of multiple Spotify playlists in one request  
-- Frontend can now send a list of playlist names (from checkbox selection prob) and convert all of them in one go  
-- YouTube playlist names now match Spotify playlist names exactly when its made 
+- `/convertPlaylists` route to support conversion of multiple Spotify playlists in one request
+- Frontend can now send a list of playlist names (from checkbox selection prob) and convert all of them in one go
+- YouTube playlist names now match Spotify playlist names exactly when its made
 
 ### Removed
 
-- `/spToYouTube` route (single playlist conversion — I have bulk convert now so no need anymore)  
+- `/spToYouTube` route (single playlist conversion — I have bulk convert now so no need anymore)
 - `/createPlaylist` route — I have bulk convert now so no need anymore
 - `/playlistSelected` route — I have bulk convert now so no need anymore
 
@@ -52,10 +65,9 @@ All notable changes to this project will be documented in this file.
 - Stored YouTube credentials in ytCredentials global variable
 - Created helper functions: createPlaylist(service, name), songSearcher(song, service), and songAdder(songArray, service, ytPlaylistId)
 
-
 ### Changed
 
-- Major refactor (litr everything omg): all functions in spotifytoYT have been implemented as "true backend" now. Were made for a CLI before lol
+- Major refactor: all functions in spotifytoYT have been implemented as "true backend" now. Were made for a CLI before
 - songAdder() uses a cleaner insert flow and skips tracks without search results
 - Created a working flow to create a playlist and add tracks by name
 

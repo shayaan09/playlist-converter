@@ -20,3 +20,10 @@ env/
 
 # macOS hidden files
 .DS_Store
+
+
+
+#I still want the package.json files.
+# Don't ignore project-critical files
+!package.json
+!package-lock.json

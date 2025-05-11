@@ -7,12 +7,6 @@ def jprint(obj):
     print(text) 
 
 
-# def getSpUser():
-#    user = sp.current_user()
-#    userId = user["id"]
-
-   
-
 #Goes to the user, returns all the playlists, and adds it into the allPlaylists var
 def fetchSpPlaylists(sp):
    allSpotifyPlaylists = sp.current_user_playlists()["items"]
@@ -31,7 +25,7 @@ def getSpotifyPlaylistID(name: str, sp):
     return None
 
 
-#Return the playlist names and ids (only show playlist names to user, then give them the option to select one of the playlists to transfer over)4
+#Return the playlist names and ids (only show playlist names to user, then give them the option to select one of the playlists to transfer over)
 def showPlaylists(sp):
     userPlaylists = fetchSpPlaylists(sp)
     playlistName = []
@@ -42,7 +36,7 @@ def showPlaylists(sp):
     return playlistName
 
 
-#After selecting the playlist, copy stuff obv
+#After selecting the playlist, copy the songs
 def songCopy(id: str, sp):
     songArray = []
     results = sp.user_playlist_tracks(playlist_id=id)
@@ -94,7 +88,7 @@ def songSearcher(song, service):
         response = request.execute()
         items = response["items"]
     
-        songId: str = items[0]["id"]["videoId"] #For now, just retrieve the first search result and extract id lol
+        songId: str = items[0]["id"]["videoId"] #For now, just retrieve the first search result and extract id [quota issue]
         return songId  
     except:
         return None

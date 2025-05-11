@@ -88,7 +88,7 @@ def spotifyPlaylistGetter():
      return {"User's Playlists" : userPlaylists}
 
 
-#this lets user select playlists, then when they hit a convert button, converts all the spotify playlists to youtube playlists ongng
+#this lets user select playlists, then when they hit a convert button, converts all the spotify playlists to youtube playlists
 @app.post("/convertPlaylists")
 def bulkConvert(playlists: list[str]):
     global ytCredentials
